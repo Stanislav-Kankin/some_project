@@ -49,6 +49,14 @@ async def handle_query(message: Message):
             title = result['title']
             link = result['link']
 
+            # Проверяем, что ссылка начинается с HTTPS
+            if not link.startswith('https://'):
+                await message.answer(
+                    f"{i}. <b>{title}</b>\n{link}",
+                    parse_mode=ParseMode.HTML
+                )
+                continue
+
             # Создаем кнопку для Web App
             web_app_button = InlineKeyboardButton(
                 text="Открыть в Telegram",
