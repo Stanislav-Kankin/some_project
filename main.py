@@ -9,9 +9,9 @@ from dotenv import load_dotenv
 from bs_parser import search_google
 
 # Загрузка переменных окружения
-dot_env_path = os.path.join(os.path.dirname(__file__), '.env')
-if os.path.exists(dot_env_path):
-    load_dotenv(dot_env_path)
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
 
 # Инициализация бота и диспетчера
 bot = Bot(token=os.getenv('BOT_TOKEN'))
